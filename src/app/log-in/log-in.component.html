@@ -1,0 +1,59 @@
+<app-head></app-head>
+<div style="background-image: url(assets/16692.jpg);height: 173vh;">
+  <section class="container forms">
+    <div class="form login">
+      <div class="form-content">
+        <header>Login</header>
+        <form action="#" [formGroup]="loginForm">
+          <div class=" input-field mb-5">
+            <label style="font-weight: bold; font-size: 20px;color: blueviolet;" class="input-group">Email</label>
+            <p>
+            <input placeholder="Enter your email" formControlName="email" required class="input-group form-control"><i class="validation"><span></span><span></span></i></p>
+            <span class="text-danger" *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+              <span *ngIf="loginForm.controls.email.errors.required">This field is mandatory.</span>
+              <span *ngIf="loginForm.controls.email.errors.pattern">This field is invalid.</span>
+            </span>
+          </div>
+          <div class="col-12">
+            <div class=" input-field mb-5 input-group mb-3">
+              <label for="password" style="font-weight: bold; font-size: 20px; color: blueviolet;" for="password" class="input-group">Password</label>
+
+              <input name="password" type="password" value="" formControlName="password" class="input form-control input-group"
+                id="password" placeholder="password" required="true" aria-label="password"
+                aria-describedby="basic-addon1" />
+              <div class="input-group-append">
+                <span class="input-group-text input-group" onclick="password_show_hide();">
+                  <i class="fas fa-eye" id="show_eye"></i>
+                  <i class="fas fa-eye-slash d-none" id="hide_eye"></i>
+                </span>
+              </div>
+              <span class="text-danger input-group"
+                *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+                <span *ngIf="loginForm.controls.password.errors.required">This field is mandatory.</span>
+              </span>
+            </div>
+          </div>
+          <div class="form-link">
+            <a href="#" class="forgot-pass" routerLink="/forgotpassword" >Forgot password?</a>
+          </div>
+          <div class="button input-box input-group">
+            <button mat-raised-button color="primary" type="submit" (click)="handleSubmit()"
+              [disabled]="!(loginForm.dirty)">
+              Login
+            </button>
+          </div>
+        </form>
+        <div class="form-link">
+          <span>Don't have an account? <a href="#" class="link signup-link" routerLink="/signup" >Signup</a></span>
+        </div>
+      </div>
+      <div class="social-container">
+				<a href="https://www.facebook.com/login/" class="social"><i class="fab fa-facebook-f"></i></a>
+				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			</div>
+    </div>
+
+  </section>
+  </div>
+  <app-footer></app-footer>
